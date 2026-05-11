@@ -1,0 +1,73 @@
+aid: ukg-ready
+name: UKG Ready
+description: >-
+  UKG Ready (formerly Kronos Workforce Ready) is UKG's unified Human Capital
+  Management (HCM) suite for small and midmarket organizations, combining HR,
+  payroll, talent management, benefits administration, time and attendance,
+  scheduling, and compliance into a single cloud platform. UKG Ready exposes
+  REST and GraphQL APIs (per-tenant host of the form
+  https://{hostname}/api/...) using OAuth 2.0 authorization code flow with
+  bearer tokens for managing employees, schedules, timekeeping, payroll,
+  benefits, and workforce data.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - HCM
+  - Human Capital Management
+  - Payroll
+  - Workforce Management
+  - Time and Attendance
+  - HR
+  - Benefits
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/ukg-ready/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: ukg-ready:rest-api
+    name: UKG Ready REST API
+    description: >-
+      RESTful API for UKG Ready providing programmatic access to employees,
+      HR records, payroll, time and attendance, schedules, accruals,
+      benefits, and workforce reporting. The base URL is per-tenant
+      (https://{hostname}/api). Authentication uses OAuth 2.0 authorization
+      code flow with bearer access tokens issued via the UKG Ready auth
+      service.
+    humanURL: https://developer.ukg.com
+    baseURL: https://{hostname}/api
+    tags:
+      - HCM
+      - Employees
+      - Payroll
+      - Time and Attendance
+      - Scheduling
+      - Benefits
+    properties:
+      - type: Developer Portal
+        url: https://developer.ukg.com
+      - type: Documentation
+        url: https://developer.ukg.com/talk/docs/quick-start-doc
+      - type: Authentication
+        url: https://developer.ukg.com/hrsd/docs/ukg-hr-service-delivery-api-oauth-authentication-flow
+
+common:
+  - type: Website
+    url: https://www.ukg.com/solutions/ukg-ready
+  - type: Documentation
+    url: https://developer.ukg.com
+  - type: Developer Portal
+    url: https://developer.ukg.com
+  - type: Pricing
+    url: https://www.ukg.com/solutions/ukg-ready/pricing
+  - type: Sign Up
+    url: https://www.ukg.com/contact
+  - type: Community
+    url: https://community.ukg.com
+  - type: Support
+    url: https://www.ukg.com/support
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/ukg
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
