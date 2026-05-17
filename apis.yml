@@ -60,7 +60,7 @@ common:
     url: https://developer.ukg.com
   - type: Pricing
     url: https://www.ukg.com/solutions/ukg-ready/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://www.ukg.com/contact
   - type: Community
     url: https://community.ukg.com
