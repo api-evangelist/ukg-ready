@@ -52,6 +52,8 @@ apis:
         url: https://developer.ukg.com/hrsd/docs/ukg-hr-service-delivery-api-oauth-authentication-flow
 
 common:
+  - type: GitHubOrganization
+    url: https://github.com/ultimatesoftware
   - type: Website
     url: https://www.ukg.com/solutions/ukg-ready
   - type: Documentation
