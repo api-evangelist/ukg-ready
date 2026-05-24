@@ -1,0 +1,213 @@
+openapi: 3.1.0
+info:
+  title: UKG Ready API
+  version: 1.0.0
+  summary: REST API for the UKG Ready HCM platform.
+  description: |
+    UKG Ready is UKG's unified Human Capital Management suite for small and
+    midmarket organizations. The REST API is tenant-hosted: each customer
+    has a unique hostname (https://{hostname}/api). Authentication uses
+    OAuth 2.0; clients exchange credentials at the access_token endpoint
+    and present the resulting bearer token on subsequent calls.
+
+    This specification documents the public endpoints surfaced in the UKG
+    Ready quick-start documentation. Full tenant-specific schemas require
+    access to the UKG developer portal.
+  contact:
+    name: UKG Developer Portal
+    url: https://developer.ukg.com
+  license:
+    name: Proprietary
+    url: https://www.ukg.com/legal
+servers:
+  - url: https://{hostname}/api
+    description: Tenant-specific UKG Ready API host
+    variables:
+      hostname:
+        default: secure.saashr.com
+        description: Customer-specific UKG Ready hostname assigned at provisioning
+security:
+  - bearerAuth: []
+tags:
+  - name: Authentication
+    description: Access token issuance
+  - name: Groups
+    description: Workgroup and organizational unit management
+  - name: Content
+    description: Tenant content and posts
+  - name: Employees
+    description: Employee records and HR data
+paths:
+  /authentication/access_token:
+    post:
+      tags: [Authentication]
+      summary: Request an OAuth 2.0 access token
+      description: |
+        Exchange credentials (username, password, client_id, client_secret)
+        for an OAuth 2.0 bearer access token used by all other endpoints.
+      operationId: requestAccessToken
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRequest'
+      responses:
+        '200':
+          description: Access token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /group/v1/groups:
+    get:
+      tags: [Groups]
+      summary: List groups
+      description: Retrieve a paginated collection of workgroups for the tenant.
+      operationId: listGroups
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Group collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Group'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /content/v1/posts:
+    post:
+      tags: [Content]
+      summary: Create a post
+      description: Create a new content post in the tenant.
+      operationId: createPost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostInput'
+      responses:
+        '201':
+          description: Post created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer access token issued via /authentication/access_token.
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 200
+        default: 50
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+  responses:
+    Unauthorized:
+      description: Missing or invalid bearer token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    TokenRequest:
+      type: object
+      required: [username, password, client_id, client_secret]
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          format: password
+        client_id:
+          type: string
+        client_secret:
+          type: string
+          format: password
+        grant_type:
+          type: string
+          default: password
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          default: Bearer
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    PostInput:
+      type: object
+      required: [title, body]
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        audienceGroupId:
+          type: string
+    Post:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        body:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
