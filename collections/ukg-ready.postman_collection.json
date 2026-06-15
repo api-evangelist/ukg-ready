@@ -1,0 +1,670 @@
+{
+  "item": [
+    {
+      "id": "c5ad7467-68ab-4a23-8ecd-5dfd886f7402",
+      "name": "Authentication",
+      "description": {
+        "content": "Access token issuance",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a5552fbe-cf3e-484a-9668-5ec93cd18543",
+          "name": "Request an OAuth 2.0 access token",
+          "request": {
+            "name": "Request an OAuth 2.0 access token",
+            "description": {
+              "content": "Exchange credentials (username, password, client_id, client_secret)\nfor an OAuth 2.0 bearer access token used by all other endpoints.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "access_token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<password>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<password>\",\n  \"grant_type\": \"password\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab23dfc0-bb6e-43e9-8030-31fff751871e",
+              "name": "Access token issued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "access_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<password>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<password>\",\n  \"grant_type\": \"password\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 8256,\n  \"refresh_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a0e8258-dbd5-4f8c-ad84-2903aa53aa20",
+              "name": "Missing or invalid bearer token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "access_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<password>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<password>\",\n  \"grant_type\": \"password\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9c6844bb-2711-4616-ad7b-44b912a40e60",
+      "name": "Groups",
+      "description": {
+        "content": "Workgroup and organizational unit management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dcf47879-1cbb-46c9-bf75-1a6efeacef68",
+          "name": "List groups",
+          "request": {
+            "name": "List groups",
+            "description": {
+              "content": "Retrieve a paginated collection of workgroups for the tenant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "group",
+                "v1",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3994706f-2ed3-45f9-b98b-3777feffbbe3",
+              "name": "Group collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "group",
+                    "v1",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "319906b8-5037-49c9-9075-e9eddb8c9338",
+              "name": "Missing or invalid bearer token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "group",
+                    "v1",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ba8e2429-159b-4ed5-86c9-5d675a166136",
+      "name": "Content",
+      "description": {
+        "content": "Tenant content and posts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "378ac43c-49c6-41fa-ac79-447e0d81cbdd",
+          "name": "Create a post",
+          "request": {
+            "name": "Create a post",
+            "description": {
+              "content": "Create a new content post in the tenant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "content",
+                "v1",
+                "posts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"audienceGroupId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "38ac79ef-ed82-473b-ac77-3edc5ea093dc",
+              "name": "Post created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "v1",
+                    "posts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"audienceGroupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"body\": \"string\",\n  \"createdAt\": \"2021-02-24T13:45:20.593Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "713a9a95-513c-4374-96c5-3ace1af4b526",
+              "name": "Invalid request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "v1",
+                    "posts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"audienceGroupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d390734-1583-45f7-aec2-1ed2ac1523f3",
+              "name": "Missing or invalid bearer token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "v1",
+                    "posts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer-specific UKG Ready hostname assigned at provisioning",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"audienceGroupId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "69cd5d2e-246a-48e4-9a59-4ec762cb847a",
+      "name": "Employees",
+      "description": {
+        "content": "Employee records and HR data",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Customer-specific UKG Ready hostname assigned at provisioning",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "secure.saashr.com",
+      "key": "hostname"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5e5a26b0-c2e2-4cfa-9e02-a2ba8cfe0585",
+    "name": "UKG Ready API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "UKG Ready is UKG's unified Human Capital Management suite for small and\nmidmarket organizations. The REST API is tenant-hosted: each customer\nhas a unique hostname (https://{hostname}/api). Authentication uses\nOAuth 2.0; clients exchange credentials at the access_token endpoint\nand present the resulting bearer token on subsequent calls.\n\nThis specification documents the public endpoints surfaced in the UKG\nReady quick-start documentation. Full tenant-specific schemas require\naccess to the UKG developer portal.\n\n\nContact Support:\n Name: UKG Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

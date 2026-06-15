@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "UKG Ready API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request an OAuth 2.0 access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}/api/authentication/access_token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchange credentials (username, password, client_id, client_secret)\nfor an OAuth 2.0 bearer access token used by all other endpoints.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/api/group/v1/groups",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated collection of workgroups for the tenant."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Content",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}/api/content/v1/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new content post in the tenant."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
