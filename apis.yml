@@ -44,7 +44,7 @@ apis:
   - Scheduling
   - Benefits
   properties:
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developer.ukg.com
   - type: Documentation
     url: https://developer.ukg.com/talk/docs/quick-start-doc
@@ -60,11 +60,11 @@ common:
   url: https://www.ukg.com/solutions/ukg-ready
 - type: Documentation
   url: https://developer.ukg.com
-- type: Developer Portal
+- type: DeveloperPortal
   url: https://developer.ukg.com
 - type: Pricing
   url: https://www.ukg.com/solutions/ukg-ready/pricing
-- type: SignUp
+- type: Signup
   url: https://www.ukg.com/contact
 - type: Community
   url: https://community.ukg.com
