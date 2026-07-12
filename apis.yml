@@ -54,6 +54,10 @@ apis:
   - url: graphql/ukg-ready-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/ukg-ready-domain-security.yml
+- type: Authentication
+  url: authentication/ukg-ready-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/ultimatesoftware
 - type: Website
