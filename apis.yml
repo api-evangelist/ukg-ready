@@ -54,6 +54,8 @@ apis:
   - url: graphql/ukg-ready-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/ukg-ready-agentic-access.yml
 - type: DomainSecurity
   url: security/ukg-ready-domain-security.yml
 - type: Authentication
