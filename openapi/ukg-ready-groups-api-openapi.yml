@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: UKG Ready Authentication Groups API
+  version: 1.0.0
+  summary: REST API for the UKG Ready HCM platform.
+  description: 'UKG Ready is UKG''s unified Human Capital Management suite for small and
+
+    midmarket organizations. The REST API is tenant-hosted: each customer
+
+    has a unique hostname (https://{hostname}/api). Authentication uses
+
+    OAuth 2.0; clients exchange credentials at the access_token endpoint
+
+    and present the resulting bearer token on subsequent calls.
+
+
+    This specification documents the public endpoints surfaced in the UKG
+
+    Ready quick-start documentation. Full tenant-specific schemas require
+
+    access to the UKG developer portal.
+
+    '
+  contact:
+    name: UKG Developer Portal
+    url: https://developer.ukg.com
+  license:
+    name: Proprietary
+    url: https://www.ukg.com/legal
+servers:
+- url: https://{hostname}/api
+  description: Tenant-specific UKG Ready API host
+  variables:
+    hostname:
+      default: secure.saashr.com
+      description: Customer-specific UKG Ready hostname assigned at provisioning
+security:
+- bearerAuth: []
+tags:
+- name: Groups
+  description: Workgroup and organizational unit management
+paths:
+  /group/v1/groups:
+    get:
+      tags:
+      - Groups
+      summary: List groups
+      description: Retrieve a paginated collection of workgroups for the tenant.
+      operationId: listGroups
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Group collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Group'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 200
+        default: 50
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+  schemas:
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid bearer token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer access token issued via /authentication/access_token.
