@@ -10,7 +10,19 @@ description: >-
   bearer tokens for managing employees, schedules, timekeeping, payroll,
   benefits, and workforce data.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ukg-ready.png
 tags:
 - HCM
 - Human Capital Management
@@ -28,12 +40,10 @@ apis:
 - aid: ukg-ready:rest-api
   name: UKG Ready REST API
   description: >-
-    RESTful API for UKG Ready providing programmatic access to employees,
-    HR records, payroll, time and attendance, schedules, accruals,
-    benefits, and workforce reporting. The base URL is per-tenant
-    (https://{hostname}/api). Authentication uses OAuth 2.0 authorization
-    code flow with bearer access tokens issued via the UKG Ready auth
-    service.
+    RESTful API for UKG Ready providing programmatic access to employees, HR records, payroll, time and
+    attendance, schedules, accruals, benefits, and workforce reporting. The base URL is per-tenant (https://{hostname}/api).
+    Authentication uses OAuth 2.0 authorization code flow with bearer access tokens issued via the UKG
+    Ready auth service.
   humanURL: https://developer.ukg.com
   baseURL: https://{hostname}/api
   tags:
@@ -49,10 +59,40 @@ apis:
   - type: Documentation
     url: https://developer.ukg.com/talk/docs/quick-start-doc
   - type: Authentication
-    url: https://developer.ukg.com/hrsd/docs/ukg-hr-service-delivery-api-oauth-authentication-flow
-
+    url: >-
+      https://developer.ukg.com/hrsd/docs/ukg-hr-service-delivery-api-oauth-authentication-flow
   - url: graphql/ukg-ready-graphql.md
     type: GraphQL
+- aid: ukg-ready:ukg-ready-authentication-api
+  name: UKG Ready Authentication API
+  description: Access token issuance
+  humanURL: https://developer.ukg.com
+  baseURL: https://{hostname}/api
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/ukg-ready-authentication-api-openapi.yml
+- aid: ukg-ready:ukg-ready-content-api
+  name: UKG Ready Content API
+  description: Tenant content and posts
+  humanURL: https://developer.ukg.com
+  baseURL: https://{hostname}/api
+  tags:
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/ukg-ready-content-api-openapi.yml
+- aid: ukg-ready:ukg-ready-groups-api
+  name: UKG Ready Groups API
+  description: Workgroup and organizational unit management
+  humanURL: https://developer.ukg.com
+  baseURL: https://{hostname}/api
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/ukg-ready-groups-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/ukg-ready-agentic-access.yml
