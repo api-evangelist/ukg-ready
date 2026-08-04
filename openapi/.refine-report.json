@@ -1,0 +1,18 @@
+{
+  "provider": "ukg-ready",
+  "sources": [
+    "ukg-ready-authentication-api-openapi.yml",
+    "ukg-ready-content-api-openapi.yml",
+    "ukg-ready-groups-api-openapi.yml"
+  ],
+  "outputs": [
+    "ukg-ready-authentication-api-openapi.yml",
+    "ukg-ready-content-api-openapi.yml",
+    "ukg-ready-groups-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
