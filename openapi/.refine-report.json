@@ -1,9 +1,7 @@
 {
   "provider": "ukg-ready",
   "sources": [
-    "ukg-ready-authentication-api-openapi.yml",
-    "ukg-ready-content-api-openapi.yml",
-    "ukg-ready-groups-api-openapi.yml"
+    "_original/ukg-ready-openapi.yml"
   ],
   "outputs": [
     "ukg-ready-authentication-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "ukg-ready-authentication-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "ukg-ready-content-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "ukg-ready-groups-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ukg-ready-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "ukg-ready-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ukg-ready-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ukg-ready-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -5,22 +5,7 @@ info:
   summary: REST API for the UKG Ready HCM platform.
   description: 'UKG Ready is UKG''s unified Human Capital Management suite for small and
 
-    midmarket organizations. The REST API is tenant-hosted: each customer
-
-    has a unique hostname (https://{hostname}/api). Authentication uses
-
-    OAuth 2.0; clients exchange credentials at the access_token endpoint
-
-    and present the resulting bearer token on subsequent calls.
-
-
-    This specification documents the public endpoints surfaced in the UKG
-
-    Ready quick-start documentation. Full tenant-specific schemas require
-
-    access to the UKG developer portal.
-
-    '
+    midmarket organizations.'
   contact:
     name: UKG Developer Portal
     url: https://developer.ukg.com
@@ -47,9 +32,7 @@ paths:
       summary: Request an OAuth 2.0 access token
       description: 'Exchange credentials (username, password, client_id, client_secret)
 
-        for an OAuth 2.0 bearer access token used by all other endpoints.
-
-        '
+        for an OAuth 2.0 bearer access token used by all other endpoints.'
       operationId: requestAccessToken
       security: []
       requestBody:
