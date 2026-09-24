@@ -81,8 +81,6 @@ apis:
   - type: Authentication
     url: >-
       https://developer.ukg.com/hrsd/docs/ukg-hr-service-delivery-api-oauth-authentication-flow
-  - url: graphql/ukg-ready-graphql.md
-    type: GraphQL
 - aid: ukg-ready:ukg-ready-authentication-api
   name: UKG Ready Authentication API
   description: Access token issuance
