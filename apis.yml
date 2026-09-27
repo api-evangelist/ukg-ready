@@ -43,6 +43,7 @@ tags:
 - Time and Attendance
 - Human Resources
 - Benefits
+- Employee Benefits
 tags_raw:
 - HCM
 - Human Capital Management
@@ -51,6 +52,7 @@ tags_raw:
 - Time and Attendance
 - HR
 - Benefits
+- Employee Benefits
 url: >-
   https://raw.githubusercontent.com/api-evangelist/ukg-ready/refs/heads/main/apis.yml
 created: '2026-05-11'

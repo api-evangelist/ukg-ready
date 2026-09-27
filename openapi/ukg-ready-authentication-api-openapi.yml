@@ -52,25 +52,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-    TokenResponse:
-      type: object
-      properties:
-        access_token:
-          type: string
-        token_type:
-          type: string
-          default: Bearer
-        expires_in:
-          type: integer
-        refresh_token:
-          type: string
     TokenRequest:
       type: object
       required:
@@ -92,6 +73,25 @@ components:
         grant_type:
           type: string
           default: password
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          default: Bearer
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
   responses:
     Unauthorized:
       description: Missing or invalid bearer token
