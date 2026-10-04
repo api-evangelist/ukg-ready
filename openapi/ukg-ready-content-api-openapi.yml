@@ -50,19 +50,20 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    BadRequest:
+      description: Invalid request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid bearer token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    PostInput:
-      type: object
-      required:
-      - title
-      - body
-      properties:
-        title:
-          type: string
-        body:
-          type: string
-        audienceGroupId:
-          type: string
     Post:
       type: object
       properties:
@@ -75,6 +76,18 @@ components:
         createdAt:
           type: string
           format: date-time
+    PostInput:
+      type: object
+      required:
+      - title
+      - body
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        audienceGroupId:
+          type: string
     Error:
       type: object
       properties:
@@ -82,19 +95,6 @@ components:
           type: string
         message:
           type: string
-  responses:
-    Unauthorized:
-      description: Missing or invalid bearer token
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request body
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http
