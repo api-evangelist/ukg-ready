@@ -1,4 +1,4 @@
-# UKG Ready (ukg-ready)
+# UKG Ready
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,66 +66,110 @@
 
 UKG Ready (formerly Kronos Workforce Ready) is UKG's unified Human Capital Management (HCM) suite for small and midmarket organizations, combining HR, payroll, talent management, benefits administration, time and attendance, scheduling, and compliance into a single cloud platform. UKG Ready exposes REST and GraphQL APIs (per-tenant host of the form https://{hostname}/api/...) using OAuth 2.0 authorization code flow with bearer tokens for managing employees, schedules, timekeeping, payroll, benefits, and workforce data.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ukg-ready/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ukg-ready/refs/heads/main/apis.yml)
+**Areas:** HCM · Payroll · Workforce Management · Time and Attendance · Human Resources · Benefits · Employee Benefits
 
-## Scope
+## UKG Ready on APIs.io
 
-- **Type:** Index
+Everything profiled for UKG Ready is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ukg-ready/](https://apis.io/providers/ukg-ready/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- HCM
-- Human Capital Management
-- Payroll
-- Workforce Management
-- Time and Attendance
-- HR
-- Benefits
+- [UKG Ready REST API](https://apis.io/apis/ukg-ready/rest-api/) — RESTful API for UKG Ready providing programmatic access to employees, HR records, payroll, time and attendance, schedules, accruals, benefits, and workforce…
+- [UKG Ready Authentication API](https://apis.io/apis/ukg-ready/ukg-ready-authentication-api/) — Access token issuance
+- [UKG Ready Content API](https://apis.io/apis/ukg-ready/ukg-ready-content-api/) — Tenant content and posts
+- [UKG Ready Groups API](https://apis.io/apis/ukg-ready/ukg-ready-groups-api/) — Workgroup and organizational unit management
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### UKG Ready REST API
+GraphQL schemas.
 
-RESTful API for UKG Ready providing programmatic access to employees, HR records, payroll, time and attendance, schedules, accruals, benefits, and workforce reporting. The base URL is per-tenant (https://{hostname}/api). Authentication uses OAuth 2.0 authorization code flow with bearer access tokens issued via the UKG Ready auth service.
+- [Moved to /providers/ukg-ready/](https://apis.io/graphqls/ukg-ready/ukg-ready-graphql/)
 
-- **Human URL:** [https://developer.ukg.com](https://developer.ukg.com)
-- **Base URL:** `https://{hostname}/api`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- HCM
-- Employees
-- Payroll
-- Time and Attendance
-- Scheduling
-- Benefits
+- [Ukg Ready Agentic Access](https://apis.io/agentic-access/ukg-ready/ukg-ready-agentic-access/)
 
-#### Properties
+#### Collections (4)
 
-- [Developer  Portal](https://developer.ukg.com)
-- [Documentation](https://developer.ukg.com/talk/docs/quick-start-doc)
-- [Authentication](https://developer.ukg.com/hrsd/docs/ukg-hr-service-delivery-api-oauth-authentication-flow)
-- [Postman Collection](collections/ukg-ready.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ukg-ready.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [UKG Ready API](https://apis.io/collections/ukg-ready/open-ukg-ready/)
+- [UKG Ready Authentication API](https://apis.io/collections/ukg-ready/open-ukg-ready-authentication-api/)
+- [UKG Ready Authentication Content API](https://apis.io/collections/ukg-ready/open-ukg-ready-content-api/)
+- [UKG Ready Authentication Groups API](https://apis.io/collections/ukg-ready/open-ukg-ready-groups-api/)
 
-- [GitHub Organization](https://github.com/ultimatesoftware)
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ukg Ready Authentication](https://apis.io/security/ukg-ready/ukg-ready-authentication/)
+- [Ukg Ready Domain Security](https://apis.io/security/ukg-ready/ukg-ready-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.ukg.com/solutions/ukg-ready)
 - [Documentation](https://developer.ukg.com)
-- [Developer  Portal](https://developer.ukg.com)
 - [Pricing](https://www.ukg.com/solutions/ukg-ready/pricing)
-- [Sign Up](https://www.ukg.com/contact)
-- [Community](https://community.ukg.com)
 - [Support](https://www.ukg.com/support)
-- [LinkedIn](https://www.linkedin.com/company/ukg)
+- [GitHub](https://github.com/ultimatesoftware)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 13.2 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ukg-ready/](https://apis.io/providers/ukg-ready/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for UKG Ready: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ukg-ready/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
